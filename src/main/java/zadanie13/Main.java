@@ -21,7 +21,7 @@ public class Main {
             ((e - 1) % modulo)
             , ((e - 1) % (modulo * modulo)) / (modulo)
             , ((e - 1) % (modulo * modulo * modulo)) / (modulo * modulo)));
-    static int showOption = 1;
+    static int showOption = 2;
 
     static {
         if (showOption == 1) {
@@ -154,17 +154,21 @@ public class Main {
                                 out = epsilon;
                             } else {
                                 if (l.equals(epsilon)) {
-                                    out = "(" + r + ")" + "+";/////////////////////////////////
+                                    out = "(" + r + ")" + "?";/////////////////////////////////
                                 } else {
                                     if (r.equals(epsilon)) {
                                         out = epsilon;
                                     } else {
-                                        out = "(" + l + ")" + "+";/////////////////////////////////
+                                        out = "(" + l + ")" + "?";/////////////////////////////////
                                     }
                                 }
                             }
                         } else {
-                            out = "(" + l + OR + r + ")";
+                            if (l.equals(r)) {
+                                out = l;
+                            } else {
+                                out = "(" + l + OR + r + ")";
+                            }
                         }
                     }
 
