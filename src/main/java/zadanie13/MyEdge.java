@@ -31,7 +31,7 @@ public class MyEdge {
             return false;
         }
         MyEdge tempEdge = (MyEdge) obj;
-        if (this.label.equals(tempEdge.label)) {
+        if (!this.label.equals(tempEdge.label)) {
             return false;
         }
         if (!this.source.equals(tempEdge.source)) {
