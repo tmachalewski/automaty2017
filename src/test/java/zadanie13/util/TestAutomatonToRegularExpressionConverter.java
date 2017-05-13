@@ -78,9 +78,23 @@ public class TestAutomatonToRegularExpressionConverter {
     @Test
     @Ignore //OutOfMemoryError
     /*Comment on expected memory usage
-    81 states
+    27 states
+    R[2][27][27] of Strings
+    2 for remembering penultimate and current iteration over k
+    27 for iterations over i
+    27 for iterations over j
 
+    Length of String = 4^k
 
+    Expected memory space usage in GB
+    27*27*Sum(4^i,{i,26,27})/(1000*1000*1000*8)
+    https://www.wolframalpha.com/input/?i=27*27*Sum(4%5Ei,%7Bi,26,27%7D)%2F(1000*1000*1000*8)
+    =~2*10^9 2 trilion GBs
+
+    In reality up to k==8 most strings were one character long
+    27*27*Sum(4^i,{i,26-8,27-8})/(1000*1000*1000*8)
+    https://www.wolframalpha.com/input/?i=27*27*Sum(4%5Ei,%7Bi,26-8,27-8%7D)%2F(1000*1000*1000*8)
+    =~31 GBs
     */
     public void RegularExpressionForTaskGraph() {
         DirectedSparseMultigraph<List<Integer>, MyEdge> graph = ExampleGraphs.getGridGraph(new String[]{"a", "b", "c"}, 3);
