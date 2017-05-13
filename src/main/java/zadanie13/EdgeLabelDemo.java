@@ -22,6 +22,7 @@ import edu.uci.ics.jung.visualization.control.ScalingControl;
 import edu.uci.ics.jung.visualization.decorators.*;
 import edu.uci.ics.jung.visualization.renderers.EdgeLabelRenderer;
 import edu.uci.ics.jung.visualization.renderers.VertexLabelRenderer;
+import zadanie13.util.MyEdge;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;

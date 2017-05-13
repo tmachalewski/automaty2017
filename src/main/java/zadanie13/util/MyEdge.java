@@ -1,4 +1,4 @@
-package zadanie13;
+package zadanie13.util;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import java.util.List;
  * Created by tomek on 02.05.17.
  */
 public class MyEdge {
-    String label;
-    List<Integer> source;
-    List<Integer> target;
+    public String label;
+    public List<Integer> source;
+    public List<Integer> target;
 
     public MyEdge(String label) {
         this.label = label;
@@ -22,7 +22,7 @@ public class MyEdge {
 
     @Override
     public String toString() {
-        return label.toString();
+        return label;
     }
 
     @Override
