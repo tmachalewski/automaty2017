@@ -18,7 +18,37 @@ import java.util.regex.Pattern;
 public class TestAutomatonToRegularExpressionConverter {
 
     @Test
-    public void RegularExpressionForExampleLink() {
+    public void RegularExpressionForAnotherSimplifiedTask() {
+        DirectedSparseMultigraph<List<Integer>, MyEdge> graph = ExampleGraphs.getGraphFromAnotherSimplifiedTask();
+
+        List<Integer> initialState = Arrays.asList(0, 0, 0);
+        List<Integer> finalState = Arrays.asList(0, 1, 1); //for modulo 2 - final = |a|===0 |b|===1 |c|===1
+
+        Map<String, Boolean> tests = new HashMap<>();
+
+        tests.put("aabc", true);
+        tests.put("abc", false);
+        tests.put("aaabc", false);
+        tests.put("aaabca", true);
+        tests.put("aaaabc", true);
+        tests.put("bc", true);
+        String longTest = "";
+        for (int i = 1; i < 20; i++) {
+            longTest += "aabbcc";
+        }
+        longTest += "bc";
+        tests.put(longTest, true);
+        String regularExpressionPattern = AutomatonToRegularExpressionConverter.convert(graph, initialState, finalState);
+        Pattern p = Pattern.compile(regularExpressionPattern);
+        Matcher m;
+        for (Map.Entry<String, Boolean> entry : tests.entrySet()) {
+            m = p.matcher(entry.getKey());
+            Assert.assertTrue(m.matches() == entry.getValue());
+        }
+    }
+
+    @Test
+    public void RegularExpressionForExampleTask() {
         DirectedSparseMultigraph<List<Integer>, MyEdge> graph = ExampleGraphs.getGraphFromExampleTask();
 
         List<Integer> initialState = Arrays.asList(0);
@@ -38,33 +68,6 @@ public class TestAutomatonToRegularExpressionConverter {
         tests.put("", true);
         tests.put("aa", false);
         tests.put("bba", false);
-
-        String regularExpressionPattern = AutomatonToRegularExpressionConverter.convert(graph, initialState, finalState);
-        Pattern p = Pattern.compile(regularExpressionPattern);
-        Matcher m;
-        for (Map.Entry<String, Boolean> entry : tests.entrySet()) {
-            m = p.matcher(entry.getKey());
-            Assert.assertTrue(m.matches() == entry.getValue());
-        }
-    }
-
-    @Test
-    public void RegularExpressionForSimplifiedTaskGraph() {
-        DirectedSparseMultigraph<List<Integer>, MyEdge> graph = ExampleGraphs.getGridGraph(new String[]{"a", "b"}, 3);
-        //DirectedSparseMultigraph<List<Integer>, MyEdge> sameGraph = ExampleGraphs.getGraphFromSimplifiedTask();
-
-        List<Integer> initialState = Arrays.asList(0, 0);
-        List<Integer> finalState = Arrays.asList(2, 2); // (number of "a")=3*k1+2 and (number of "b")=3*k2+2
-
-        Map<String, Boolean> tests = new HashMap<>();
-        //tests.put("",false);
-        tests.put("a", false);
-        tests.put("ab", false);
-        tests.put("aab", false);
-        tests.put("abb", false);
-        tests.put("aabb", true);
-        tests.put("abab", true);
-        tests.put("ababababab", true);
 
         String regularExpressionPattern = AutomatonToRegularExpressionConverter.convert(graph, initialState, finalState);
         Pattern p = Pattern.compile(regularExpressionPattern);
@@ -118,26 +121,23 @@ public class TestAutomatonToRegularExpressionConverter {
     }
 
     @Test
-    public void RegularExpressionForAnotherSimplifiedGraph() {
-        DirectedSparseMultigraph<List<Integer>, MyEdge> graph = ExampleGraphs.getGraphFromAnotherSimplifiedTask();
+    public void RegularExpressionForSimplifiedTask() {
+        DirectedSparseMultigraph<List<Integer>, MyEdge> graph = ExampleGraphs.getGridGraph(new String[]{"a", "b"}, 3);
+        //DirectedSparseMultigraph<List<Integer>, MyEdge> sameGraph = ExampleGraphs.getGraphFromSimplifiedTask();
 
-        List<Integer> initialState = Arrays.asList(0, 0, 0);
-        List<Integer> finalState = Arrays.asList(0, 1, 1); //for modulo 2 - final = |a|===0 |b|===1 |c|===1
+        List<Integer> initialState = Arrays.asList(0, 0);
+        List<Integer> finalState = Arrays.asList(2, 2); // (number of "a")=3*k1+2 and (number of "b")=3*k2+2
 
         Map<String, Boolean> tests = new HashMap<>();
+        //tests.put("",false);
+        tests.put("a", false);
+        tests.put("ab", false);
+        tests.put("aab", false);
+        tests.put("abb", false);
+        tests.put("aabb", true);
+        tests.put("abab", true);
+        tests.put("ababababab", true);
 
-        tests.put("aabc", true);
-        tests.put("abc", false);
-        tests.put("aaabc", false);
-        tests.put("aaabca", true);
-        tests.put("aaaabc", true);
-        tests.put("bc", true);
-        String longTest = "";
-        for (int i = 1; i < 20; i++) {
-            longTest += "aabbcc";
-        }
-        longTest += "bc";
-        tests.put(longTest, true);
         String regularExpressionPattern = AutomatonToRegularExpressionConverter.convert(graph, initialState, finalState);
         Pattern p = Pattern.compile(regularExpressionPattern);
         Matcher m;

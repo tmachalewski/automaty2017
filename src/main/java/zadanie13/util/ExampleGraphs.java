@@ -9,7 +9,7 @@ import java.util.*;
  * Created by tomek on 13.05.17.
  */
 public class ExampleGraphs {
-    public static DirectedSparseMultigraph<List<Integer>, MyEdge> getGraphFromExampleLink() {
+    public static DirectedSparseMultigraph<List<Integer>, MyEdge> getGraphFromExampleTask() {
         DirectedSparseMultigraph<List<Integer>, MyEdge> graph = new DirectedSparseMultigraph<>();
 
         List<Integer> node0 = Arrays.asList(0);
@@ -52,15 +52,15 @@ public class ExampleGraphs {
     }
 
 
-    public static DirectedSparseMultigraph<List<Integer>, MyEdge> getAnotherSimplifiedGraph() {
+    public static DirectedSparseMultigraph<List<Integer>, MyEdge> getGraphFromAnotherSimplifiedTask() {
         return getGridGraph(new String[]{"a", "b", "c"}, 2);
     }
 
-    public static DirectedSparseMultigraph<List<Integer>, MyEdge> getSimplifiedGraphFromTask() {
+    public static DirectedSparseMultigraph<List<Integer>, MyEdge> getGraphFromSimplifiedTask() {
         return getGridGraph(new String[]{"a", "b"}, 3);
     }
 
-    public static DirectedSparseMultigraph<List<Integer>, MyEdge> getGraphFromTask() {
+    public static DirectedSparseMultigraph<List<Integer>, MyEdge> getGraphFromOriginalTask() {
         return getGridGraph(new String[]{"a", "b", "c"}, 3);
     }
 }
