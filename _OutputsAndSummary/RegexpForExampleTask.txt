@@ -1,0 +1,1 @@
+(((ab)?|(b|aa)((ba)?)*(a|bb))|((ab)?|(b|aa)((ba)?)*(a|bb))(((ab)?|(b|aa)((ba)?)*(a|bb)))*((ab)?|(b|aa)((ba)?)*(a|bb)))

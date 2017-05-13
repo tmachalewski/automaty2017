@@ -1,0 +1,5 @@
+AnotherSimplifiedTask 3022 characters
+ExampleTask 118 characters
+OriginalTask not available
+SimplifiedTask 2108 characters
+

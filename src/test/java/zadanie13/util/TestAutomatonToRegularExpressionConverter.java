@@ -18,8 +18,8 @@ import java.util.regex.Pattern;
 public class TestAutomatonToRegularExpressionConverter {
 
     @Test
-    public void RegularExpressionForExample() {
-        DirectedSparseMultigraph<List<Integer>, MyEdge> graph = ExampleGraphs.getGraphFromExampleLink();
+    public void RegularExpressionForExampleLink() {
+        DirectedSparseMultigraph<List<Integer>, MyEdge> graph = ExampleGraphs.getGraphFromExampleTask();
 
         List<Integer> initialState = Arrays.asList(0);
         List<Integer> finalState = Arrays.asList(0); // same as intial state
@@ -51,7 +51,7 @@ public class TestAutomatonToRegularExpressionConverter {
     @Test
     public void RegularExpressionForSimplifiedTaskGraph() {
         DirectedSparseMultigraph<List<Integer>, MyEdge> graph = ExampleGraphs.getGridGraph(new String[]{"a", "b"}, 3);
-        //DirectedSparseMultigraph<List<Integer>, MyEdge> sameGraph = ExampleGraphs.getSimplifiedGraphFromTask();
+        //DirectedSparseMultigraph<List<Integer>, MyEdge> sameGraph = ExampleGraphs.getGraphFromSimplifiedTask();
 
         List<Integer> initialState = Arrays.asList(0, 0);
         List<Integer> finalState = Arrays.asList(2, 2); // (number of "a")=3*k1+2 and (number of "b")=3*k2+2
@@ -89,16 +89,16 @@ public class TestAutomatonToRegularExpressionConverter {
     Expected memory space usage in GB
     27*27*Sum(4^i,{i,26,27})/(1000*1000*1000*8)
     https://www.wolframalpha.com/input/?i=27*27*Sum(4%5Ei,%7Bi,26,27%7D)%2F(1000*1000*1000*8)
-    =~2*10^9 2 trilion GBs
+    =~2*10^9 =~ 2 trillion GBs
 
-    In reality up to k==8 most strings were one character long
+    In reality, up until k==8 most strings were one character long
     27*27*Sum(4^i,{i,26-8,27-8})/(1000*1000*1000*8)
     https://www.wolframalpha.com/input/?i=27*27*Sum(4%5Ei,%7Bi,26-8,27-8%7D)%2F(1000*1000*1000*8)
     =~31 GBs
     */
-    public void RegularExpressionForTaskGraph() {
-        DirectedSparseMultigraph<List<Integer>, MyEdge> graph = ExampleGraphs.getGridGraph(new String[]{"a", "b", "c"}, 3);
-        //DirectedSparseMultigraph<List<Integer>, MyEdge> sameGraph = ExampleGraphs.getGraphFromTask();
+    public void RegularExpressionForOriginalTask() {
+        DirectedSparseMultigraph<List<Integer>, MyEdge> graph = ExampleGraphs.getGraphFromOriginalTask();
+        DirectedSparseMultigraph<List<Integer>, MyEdge> sameGraph = ExampleGraphs.getGridGraph(new String[]{"a", "b", "c"}, 3);
 
         List<Integer> initialState = Arrays.asList(0, 0, 0);
         List<Integer> finalState = Arrays.asList(0, 1, 2);
@@ -119,7 +119,7 @@ public class TestAutomatonToRegularExpressionConverter {
 
     @Test
     public void RegularExpressionForAnotherSimplifiedGraph() {
-        DirectedSparseMultigraph<List<Integer>, MyEdge> graph = ExampleGraphs.getAnotherSimplifiedGraph();
+        DirectedSparseMultigraph<List<Integer>, MyEdge> graph = ExampleGraphs.getGraphFromAnotherSimplifiedTask();
 
         List<Integer> initialState = Arrays.asList(0, 0, 0);
         List<Integer> finalState = Arrays.asList(0, 1, 1); //for modulo 2 - final = |a|===0 |b|===1 |c|===1
