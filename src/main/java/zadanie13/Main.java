@@ -12,6 +12,5 @@ public class Main {
         new zadanie13.EdgeLabelDemo<>(ExampleGraphs.getGraphFromExampleTask());
         new zadanie13.EdgeLabelDemo<>(ExampleGraphs.getGraphFromOriginalTask());
         new zadanie13.EdgeLabelDemo<>(ExampleGraphs.getGraphFromSimplifiedTask());
-
     }
 }

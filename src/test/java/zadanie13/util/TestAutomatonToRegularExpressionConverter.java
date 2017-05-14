@@ -83,7 +83,7 @@ public class TestAutomatonToRegularExpressionConverter {
     /*Comment on expected memory usage
     27 states
     R[2][27][27] of Strings
-    2 for remembering penultimate and current iteration over k
+    2 for remembering last and current iteration over k
     27 for iterations over i
     27 for iterations over j
 
@@ -92,7 +92,7 @@ public class TestAutomatonToRegularExpressionConverter {
     Expected memory space usage in GB
     27*27*Sum(4^i,{i,26,27})/(1000*1000*1000*8)
     https://www.wolframalpha.com/input/?i=27*27*Sum(4%5Ei,%7Bi,26,27%7D)%2F(1000*1000*1000*8)
-    =~2*10^9 =~ 2 trillion GBs
+    =~2*10^9 =~ 2 billion GBs
 
     In reality, up until k==8 most strings were one character long
     27*27*Sum(4^i,{i,26-8,27-8})/(1000*1000*1000*8)
@@ -101,7 +101,7 @@ public class TestAutomatonToRegularExpressionConverter {
     */
     public void RegularExpressionForOriginalTask() {
         DirectedSparseMultigraph<List<Integer>, MyEdge> graph = ExampleGraphs.getGraphFromOriginalTask();
-        DirectedSparseMultigraph<List<Integer>, MyEdge> sameGraph = ExampleGraphs.getGridGraph(new String[]{"a", "b", "c"}, 3);
+        //DirectedSparseMultigraph<List<Integer>, MyEdge> sameGraph = ExampleGraphs.getGridGraph(new String[]{"a", "b", "c"}, 3);
 
         List<Integer> initialState = Arrays.asList(0, 0, 0);
         List<Integer> finalState = Arrays.asList(0, 1, 2);
@@ -122,8 +122,8 @@ public class TestAutomatonToRegularExpressionConverter {
 
     @Test
     public void RegularExpressionForSimplifiedTask() {
-        DirectedSparseMultigraph<List<Integer>, MyEdge> graph = ExampleGraphs.getGridGraph(new String[]{"a", "b"}, 3);
-        //DirectedSparseMultigraph<List<Integer>, MyEdge> sameGraph = ExampleGraphs.getGraphFromSimplifiedTask();
+        //DirectedSparseMultigraph<List<Integer>, MyEdge> sameGraph = ExampleGraphs.getGridGraph(new String[]{"a", "b"}, 3);
+        DirectedSparseMultigraph<List<Integer>, MyEdge> graph = ExampleGraphs.getGraphFromSimplifiedTask();
 
         List<Integer> initialState = Arrays.asList(0, 0);
         List<Integer> finalState = Arrays.asList(2, 2); // (number of "a")=3*k1+2 and (number of "b")=3*k2+2

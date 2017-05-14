@@ -2,7 +2,6 @@ package zadanie13.util;
 
 import edu.uci.ics.jung.graph.Graph;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +14,9 @@ public class AutomatonToRegularExpressionConverter {
     final static String epsilon = "e";
     final static String empty = "0";
     final static String OR = "|";
+
+    private AutomatonToRegularExpressionConverter() {
+    }
 
     public static String convert(Graph<List<Integer>, MyEdge> graph, List<Integer> initialState, List<Integer> finalState) {
         Map<List<Integer>, Integer> stateToId = new HashMap<>();
@@ -77,12 +79,11 @@ public class AutomatonToRegularExpressionConverter {
                             rmiddle = "(" + rmiddle + ")*";
                         }
                         r = rleft + rmiddle + rright;
-                        if (r.equals("")) {
+                        if ("".equals(r)) {
                             r = epsilon;
                         }
                     }
 
-                    List<String> w = new ArrayList<>();
                     String out = "";
                     if (l.equals(empty)) {
                         out = r;
@@ -91,7 +92,7 @@ public class AutomatonToRegularExpressionConverter {
                         out = l;
                     }
 
-                    if (out.equals("")) {
+                    if ("".equals(out)) {
                         if (l.equals(epsilon) || r.equals(epsilon)) {
                             if (l.equals(epsilon) && r.equals(epsilon)) {
                                 out = epsilon;

@@ -27,6 +27,9 @@ public class MyEdge {
 
     @Override
     public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
         if (obj.getClass() != MyEdge.class) {
             return false;
         }

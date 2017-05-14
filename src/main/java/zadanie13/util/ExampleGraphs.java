@@ -9,6 +9,9 @@ import java.util.*;
  * Created by tomek on 13.05.17.
  */
 public class ExampleGraphs {
+    private ExampleGraphs() {
+    }
+
     public static DirectedSparseMultigraph<List<Integer>, MyEdge> getGraphFromExampleTask() {
         DirectedSparseMultigraph<List<Integer>, MyEdge> graph = new DirectedSparseMultigraph<>();
 
