@@ -1,0 +1,13 @@
+https://www.google.pl/search?client=ubuntu&channel=fs&q=Transitive+closure+method&ie=utf-8&oe=utf-8&gfe_rd=cr&ei=Ok8JWdCgH9Cv8wehoqBQ </br>
+https://github.com/google/guava/wiki/GraphsExplained </br>
+http://stackoverflow.com/questions/3716269/how-can-i-represent-epsilon-in-a-regular-expression <br>
+http://stackoverflow.com/questions/1179983/how-many-characters-can-a-java-string-have </br>
+http://stackoverflow.com/questions/36691118/is-it-possible-to-show-heap-memory-size-in-intellij-ide-android-studio </br>
+http://www.fit.vutbr.cz/~izemek/grants.php.cs?file=%2Fproj%2F589%2FPresentations%2FPB05-Converting-FAs-To-REs.pdf&id=589 </br>
+http://stackoverflow.com/questions/1809613/preg-match-empty-string </br>
+http://www.cs.ru.nl/is/education/courses/2014/ads/week11.pdf </br>
+https://math.stackexchange.com/questions/590500/how-can-concatenating-empty-sets-languages-result-in-a-set-containing-empty-st </br>
+https://www.quora.com/What-is-the-difference-between-epsilon-and-phi-in-Automata </br>
+http://www.cs.toronto.edu/~fpitt/20099/CSC236/lectures/LN09.txt </br>
+https://pl.wikipedia.org/wiki/Wyra%C5%BCenie_regularne </br>
+http://stackoverflow.com/questions/3716269/how-can-i-represent-epsilon-in-a-regular-expression </br>
